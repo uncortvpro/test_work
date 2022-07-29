@@ -23,11 +23,11 @@ class LoginController extends Controller
             ]);
 
             if ($validated->passes()) {
-                return response()->json(['success'=>'Регистрация успешно пройдена!']);
+                return response()->json(['success'=>'Registration completed successfully!']);
             }
             foreach ($this->users as $user){
                 if($user['email']==$request->input('email')){
-                    return response()->json(['error_email'=>'Такой Email уже существует!']);
+                    return response()->json(['error_email'=>'This email already exists!']);
                 }
             }
             if($validated->errors()->all())
